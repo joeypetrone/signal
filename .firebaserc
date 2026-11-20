@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "personal-site-e46ae"
+  },
+  "targets": {
+    "personal-site-e46ae": {
+      "hosting": {
+        "play": [
+          "joeydev-play"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
