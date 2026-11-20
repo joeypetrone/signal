@@ -9,6 +9,11 @@ export const SCENES = {
   ENDING: 'Ending',
 };
 
+export const ASSETS = {
+  TILESET: 'crater-tiles',
+  MAP: 'crater-map',
+};
+
 export const COLORS = {
   ground: 0xb5532f,
   groundDark: 0x7e3a22,
