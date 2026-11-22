@@ -12,6 +12,7 @@ const BINDINGS = {
 };
 
 const DPAD = { UP: 12, DOWN: 13, LEFT: 14, RIGHT: 15 };
+// Sticks at rest drift by up to about 0.1; 0.2 leaves margin.
 const DEADZONE = 0.2;
 
 export class Actions {
@@ -21,10 +22,10 @@ export class Actions {
     for (const [action, binding] of Object.entries(BINDINGS)) {
       this.actionKeys[action] = binding.keys.map((name) => scene.input.keyboard.addKey(name));
     }
+    this.moveKeys = scene.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT');
     this.down = {};
     this.wasDown = {};
     this.move = new Phaser.Math.Vector2();
-    this.moveKeys = scene.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT');
     this.stick = new Phaser.Math.Vector2();
   }
 
@@ -47,6 +48,7 @@ export class Actions {
 
     this.move.set(Number(right) - Number(left), Number(down) - Number(up));
     this.move.normalize();
+
     this.stick.set(pad?.axes[0]?.value ?? 0, pad?.axes[1]?.value ?? 0);
     const length = this.stick.length();
 
