@@ -9,6 +9,12 @@ export const SCENES = {
   ENDING: 'Ending',
 };
 
+export const ACTIONS = {
+  CONFIRM: 'confirm',
+  RESET: 'reset',
+  MUTE: 'mute',
+};
+
 export const ASSETS = {
   TILESET: 'crater-tiles',
   MAP: 'crater-map',
