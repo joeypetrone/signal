@@ -83,3 +83,13 @@ On touch devices, a gameplay clip with "Best played with a keyboard or controlle
 7. Title screen pan (still image)
 
 **Never cut** the dusk shift, the ending, message box polish, Reset, mute, or the build notes.
+
+## Stretch goals
+
+Built only once the game plays start to finish. Each one sits on top of finished art and can be skipped without breaking anything.
+
+- **Vignette.** Darkened screen edges that pull the eye to the center.
+- **Drifting dust.** Slow, sideways-drifting specks across the crater, thicker near the ridge.
+- **Headlight glow.** A soft light cone in front of Dot, and a glow where the mirror beam hits.
+- **Parallax ridge.** A distant ridge and sky that scroll slower than the ground.
+- **A third puzzle.** A small cave where Dot's headlight only lights a circle around her.

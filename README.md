@@ -26,3 +26,7 @@ src/
 ```
 
 Design notes live in [SIGNAL_DESIGN.md](SIGNAL_DESIGN.md). Outside assets and their licenses are listed in [CREDITS.md](CREDITS.md).
+
+## License
+
+The code is released under the [MIT License](LICENSE). The original art, sound, and music are © Joey Petrone, all rights reserved. Outside assets keep their own licenses, listed in CREDITS.md.
