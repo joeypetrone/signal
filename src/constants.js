@@ -12,6 +12,7 @@ export const SCENES = {
 export const ACTIONS = {
   CONFIRM: 'confirm',
   RESET: 'reset',
+  CANCEL: 'cancel',
   MUTE: 'mute',
 };
 
