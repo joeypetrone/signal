@@ -30,7 +30,8 @@ export class Dot {
     const target = TUNING.maxSpeed * move.length();
     const step = (this.speed < target ? TUNING.accel : TUNING.decel) * dt;
     if (move.lengthSq() > 0) {
-      this.heading = Phaser.Math.Angle.RotateTo(this.heading, move.angle(), TUNING.turnRate * dt);
+      const targetAngle = Phaser.Math.Angle.Wrap(move.angle());
+      this.heading = Phaser.Math.Angle.RotateTo(this.heading, targetAngle, TUNING.turnRate * dt);
       this.heading = Phaser.Math.Angle.Wrap(this.heading);
     }
     this.speed = approach(this.speed, target, step);
