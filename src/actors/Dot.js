@@ -27,14 +27,16 @@ export class Dot {
   }
 
   update(move, dt) {
-    const target = TUNING.maxSpeed * move.length();
-    const step = (this.speed < target ? TUNING.accel : TUNING.decel) * dt;
+    let targetSpeed = TUNING.maxSpeed * move.length();
     if (move.lengthSq() > 0) {
       const targetAngle = Phaser.Math.Angle.Wrap(move.angle());
+      const angleDiff = Phaser.Math.Angle.GetShortestDistance(this.heading, targetAngle);
+      targetSpeed *= Math.max(0, Math.cos(angleDiff));
       this.heading = Phaser.Math.Angle.RotateTo(this.heading, targetAngle, TUNING.turnRate * dt);
       this.heading = Phaser.Math.Angle.Wrap(this.heading);
     }
-    this.speed = approach(this.speed, target, step);
+    const step = (this.speed < targetSpeed ? TUNING.accel : TUNING.decel) * dt;
+    this.speed = approach(this.speed, targetSpeed, step);
     this.rect.body.setVelocity(Math.cos(this.heading) * this.speed, Math.sin(this.heading) * this.speed);
     this.rect.rotation = this.heading;
     Phaser.Math.RotateTo(this.nose, this.rect.body.center.x, this.rect.body.center.y, this.heading, 4);
