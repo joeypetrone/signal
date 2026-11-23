@@ -14,6 +14,7 @@ export class Dot {
   constructor(scene, x, y) {
     this.scene = scene;
     this.rect = scene.add.rectangle(x, y, SIZE, SIZE, COLORS.dot);
+    scene.physics.add.existing(this.rect);
     this.heading = 0;
     this.speed = 0;
   }
