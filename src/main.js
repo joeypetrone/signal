@@ -22,7 +22,7 @@ const game = new Phaser.Game({
   },
   physics: {
     default: 'arcade',
-    arcade: { debug: false },
+    arcade: { debug: import.meta.env.DEV },
   },
   scene: [Boot, Title, Crater, Ending],
 });

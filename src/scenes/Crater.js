@@ -1,6 +1,8 @@
 import * as Phaser from 'phaser';
-import { SCENES, COLORS, ASSETS } from '../constants.js';
+import { SCENES, ASSETS } from '../constants.js';
 import { enableSceneJump } from '../debug/sceneJump.js';
+import { Actions } from '../input/actions.js';
+import { Dot } from '../actors/Dot.js';
 
 export class Crater extends Phaser.Scene {
   constructor() {
@@ -23,11 +25,18 @@ export class Crater extends Phaser.Scene {
       });
     }
 
+    this.actions = new Actions(this);
+
     const dotStart = map.findObject('objects', o => o.name === 'dotStart');
-    this.dot = this.add.rectangle(dotStart.x, dotStart.y, 12, 12, COLORS.dot);
+    this.dot = new Dot(this, dotStart.x, dotStart.y);
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-    this.cameras.main.startFollow(this.dot);
+    this.cameras.main.startFollow(this.dot.rect);
 
     enableSceneJump(this);
+  }
+
+  update(time, delta) {
+    this.actions.update();
+    this.dot.update(this.actions.move, delta / 1000);
   }
 }
