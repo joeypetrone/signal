@@ -35,6 +35,9 @@ export class Dot {
       this.heading = Phaser.Math.Angle.RotateTo(this.heading, targetAngle, TUNING.turnRate * dt);
       this.heading = Phaser.Math.Angle.Wrap(this.heading);
     }
+    const blocked = this.rect.body.blocked;
+    if (blocked.left || blocked.right) targetSpeed *= Math.abs(Math.sin(this.heading));
+    if (blocked.up || blocked.down) targetSpeed *= Math.abs(Math.cos(this.heading));
     const step = (this.speed < targetSpeed ? TUNING.accel : TUNING.decel) * dt;
     this.speed = approach(this.speed, targetSpeed, step);
     this.rect.body.setVelocity(Math.cos(this.heading) * this.speed, Math.sin(this.heading) * this.speed);
