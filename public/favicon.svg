@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-40 -40 80 80">
+  <mask id="slits">
+    <rect x="-40" y="-40" width="80" height="80" fill="#fff"/>
+    <g transform="rotate(45)" fill="#000">
+      <rect x="-27" y="-40" width="6" height="40"/>
+      <rect x="-15" y="-40" width="6" height="40"/>
+      <rect x="-3" y="-40" width="6" height="40"/>
+      <rect x="9" y="-40" width="6" height="40"/>
+      <rect x="21" y="-40" width="6" height="40"/>
+    </g>
+  </mask>
+  <circle r="36" fill="#ca8e1b" mask="url(#slits)"/>
+</svg>
