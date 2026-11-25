@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-`npm run build` outputs to `dist/`. `npm run deploy` builds and ships to Firebase Hosting.
+`npm run build` outputs to `dist/signal/`. `npm run deploy` builds and ships to Firebase Hosting, where the game is served at `play.joeydev.net/signal/` and the site root redirects there.
 
 ## Layout
 
