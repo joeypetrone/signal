@@ -30,7 +30,7 @@ export class Crater extends Phaser.Scene {
     const dotStart = map.findObject('objects', o => o.name === 'dotStart');
     this.dot = new Dot(this, dotStart.x, dotStart.y);
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-    this.cameras.main.startFollow(this.dot.rect);
+    this.cameras.main.startFollow(this.dot.rect, true);
     this.physics.add.collider(this.dot.rect, this.walls);
 
     enableSceneJump(this);
