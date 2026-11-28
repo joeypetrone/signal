@@ -3,6 +3,7 @@ import { SCENES, ASSETS } from '../constants.js';
 import { enableSceneJump } from '../debug/sceneJump.js';
 import { Actions } from '../input/actions.js';
 import { Dot } from '../actors/Dot.js';
+import { fitToCanvas, followSnapped } from '../display/camera.js';
 
 export class Crater extends Phaser.Scene {
   constructor() {
@@ -30,7 +31,8 @@ export class Crater extends Phaser.Scene {
     const dotStart = map.findObject('objects', o => o.name === 'dotStart');
     this.dot = new Dot(this, dotStart.x, dotStart.y);
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-    this.cameras.main.startFollow(this.dot.rect, true);
+    fitToCanvas(this);
+    followSnapped(this, this.dot.rect);
     this.physics.add.collider(this.dot.rect, this.walls);
 
     enableSceneJump(this);

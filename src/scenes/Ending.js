@@ -2,6 +2,7 @@ import * as Phaser from 'phaser';
 import { WIDTH, HEIGHT, SCENES, COLORS } from '../constants.js';
 import { label } from '../ui/label.js';
 import { enableSceneJump } from '../debug/sceneJump.js';
+import { fitToCanvas } from '../display/camera.js';
 
 export class Ending extends Phaser.Scene {
   constructor() {
@@ -9,6 +10,7 @@ export class Ending extends Phaser.Scene {
   }
 
   create() {
+    fitToCanvas(this);
     this.cameras.main.setBackgroundColor(COLORS.dusk);
     label(this, WIDTH / 2, HEIGHT / 2, 'TO BE CONTINUED', 8, COLORS.pale);
 

@@ -3,6 +3,7 @@ import { WIDTH, HEIGHT, SCENES, COLORS, ACTIONS } from '../constants.js';
 import { label } from '../ui/label.js';
 import { enableSceneJump } from '../debug/sceneJump.js';
 import { Actions } from '../input/actions.js';
+import { fitToCanvas } from '../display/camera.js';
 
 export class Title extends Phaser.Scene {
   constructor() {
@@ -11,6 +12,7 @@ export class Title extends Phaser.Scene {
 
   create() {
     this.actions = new Actions(this);
+    fitToCanvas(this);
     this.cameras.main.setBackgroundColor(COLORS.groundDark);
 
     label(this, WIDTH / 2, 60, 'SIGNAL', 16);
